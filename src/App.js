@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+
+import TicketClose from "./components/tickets/TicketClose";
+import TicketCreate from "./components/tickets/TicketCreate";
+import TicketEdit from "./components/tickets/TicketEdit";
+import TicketList from "./components/tickets/TicketList";
+import TicketShow from "./components/tickets/TicketShow";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route path="/" exact component={TicketList} />
+          <Route path="/tickets/new" exact component={TicketCreate} />
+          <Route path="/tickets/edit" exact component={TicketEdit} />
+          <Route path="/tickets/close" exact component={TicketClose} />
+          <Route path="/tickets/show" exact component={TicketShow} />
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
