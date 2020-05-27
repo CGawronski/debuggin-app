@@ -25,7 +25,7 @@ export default class Header extends Component {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={NavLink} to="/">
+            <Nav.Link as={Link} to="/">
               All Tickets
             </Nav.Link>
             <Nav.Link eventKey={2}>Sign In</Nav.Link>
