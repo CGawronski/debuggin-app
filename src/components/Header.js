@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Navbar, NavDropdown, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import GoogleAuth from "./GoogleAuth";
+
 export default class Header extends Component {
   render() {
     return (
@@ -29,7 +31,7 @@ export default class Header extends Component {
               <Nav.Link as={Link} to="/">
                 All Tickets
               </Nav.Link>
-              <Nav.Link eventKey={2}>Sign In</Nav.Link>
+              <GoogleAuth />
             </Nav>
           </Navbar.Collapse>
         </Container>
