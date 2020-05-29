@@ -6,6 +6,7 @@ import TicketCreate from "./components/tickets/TicketCreate";
 import TicketEdit from "./components/tickets/TicketEdit";
 import TicketList from "./components/tickets/TicketList";
 import TicketShow from "./components/tickets/TicketShow";
+import NewBugTicket from "./components/tickets/bug/NewBugTicket";
 import Header from "./components/Header";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <div>
           <Header />
           <Route path="/" exact component={TicketList} />
-          <Route path="/tickets/new" exact component={TicketCreate} />
+          <Route path="/tickets/new-bug" exact component={NewBugTicket} />
           <Route path="/tickets/edit" exact component={TicketEdit} />
           <Route path="/tickets/close" exact component={TicketClose} />
           <Route path="/tickets/show" exact component={TicketShow} />
