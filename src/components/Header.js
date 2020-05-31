@@ -7,7 +7,12 @@ import GoogleAuth from "./GoogleAuth";
 export default class Header extends Component {
   render() {
     return (
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        className="fixed-top">
         <Container>
           <Navbar.Brand as={Link} to="/" className="brandName">
             DEBUGGIN'

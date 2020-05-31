@@ -6,7 +6,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "concurrently": "^5.2.0",
+    "json-server": "^0.16.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
@@ -14,13 +17,15 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-form": "^8.3.6",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"npm start\" \"cd api && npm start\""
   },
   "eslintConfig": {
     "extends": "react-app"

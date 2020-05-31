@@ -3,10 +3,10 @@ import { reduxForm } from "redux-form";
 
 import Form from "react-bootstrap/Form";
 import { BodyContainer } from "../../../StyledComponents/BodyContainer";
-import { BugFields } from "../forms/FormFields";
+import { ProposalFields } from "../forms/FormFields";
 import { FormButtons } from "../forms/FormButtons";
 
-class NewBugTicket extends Component {
+class NewProposalTicket extends Component {
   onSubmit = (formValues) => {
     console.log(formValues);
   };
@@ -16,9 +16,9 @@ class NewBugTicket extends Component {
       <BodyContainer className="mt-4">
         <Form onSubmit={this.props.handleSubmit(this.onSubmit)}>
           <div className="mb-3">
-            <h3>New Bug Ticket</h3>
+            <h3>New Proposal Ticket</h3>
           </div>
-          <BugFields />
+          <ProposalFields />
           <FormButtons />
         </Form>
       </BodyContainer>
@@ -37,18 +37,18 @@ const validate = (formValues) => {
     errors.description = "* You must enter a description";
   }
 
-  if (!formValues.environment) {
-    errors.environment = "* Please tell us about your environment";
+  if (!formValues.solution) {
+    errors.solution = "* Please tell us your potential solution";
   }
 
-  if (!formValues.reproduce) {
-    errors.reproduce = "* Please list the steps necessary to reproduce the bug";
+  if (!formValues.alternatives) {
+    errors.alternatives = "* Please list any alternative solutions";
   }
 
   return errors;
 };
 
 export default reduxForm({
-  form: "newBugTicket",
+  form: "newProposalTicket",
   validate,
-})(NewBugTicket);
+})(NewProposalTicket);

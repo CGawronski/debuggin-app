@@ -11,4 +11,8 @@ export const BodyContainer = styled(Container)`
   border-radius: 10px;
   box-sizing: border-box;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 900px) {
+    box-shadow: none;
+  }
 `;

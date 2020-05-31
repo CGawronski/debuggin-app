@@ -1,25 +1,33 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 
-export const TextInput = ({ input, htmlFor, placeholder, label, meta }) => {
+const renderError = ({ error, touched }) => {
+  if (touched && error) {
+    return <Form.Text className="text-danger">{error}</Form.Text>;
+  }
+};
+
+export const TextInput = ({ input, placeholder, label, meta }) => {
   return (
     <Form.Group controlId="formTitle">
-      <Form.Label htmlFor={htmlFor}>{label}</Form.Label>
-      <Form.Control type="email" placeholder={placeholder} {...input} />
+      <Form.Label>{label}</Form.Label>
+      <Form.Control type="text" placeholder={placeholder} {...input} />
+      {renderError(meta)}
     </Form.Group>
   );
 };
 
-export const textArea = ({ input, htmlFor, placeholder, label, meta }) => {
+export const TextArea = ({ input, placeholder, label, meta }) => {
   return (
-    <Form.Group controlId="exampleForm.ControlTextarea1">
-      <Form.Label htmlFor={htmlFor}>{label}</Form.Label>
+    <Form.Group controlId="exampleForm.ControlTextArea1">
+      <Form.Label>{label}</Form.Label>
       <Form.Control
-        as="textarea"
+        as="TextArea"
         rows="3"
         placeholder={placeholder}
         {...input}
       />
+      {renderError(meta)}
     </Form.Group>
   );
 };
