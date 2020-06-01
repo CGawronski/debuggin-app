@@ -21,16 +21,14 @@ export default class Header extends Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
               <NavDropdown title="New Ticket" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">New Bug</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
+                <NavDropdown.Item as={Link} to="/tickets/new-bug">
+                  New Bug
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/tickets/new-proposal">
                   New Proposal
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
+                <NavDropdown.Item as={Link} to="/tickets/new-question">
                   New Question
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link as={Link} to="/">
