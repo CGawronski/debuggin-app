@@ -40,6 +40,12 @@ export const createBug = (formValues) => async (dispatch, getState) => {
   // history.push("/");
 };
 
+export const fetchTickets = () => async (dispatch) => {
+  const response = await tickets.get("/tickets");
+
+  dispatch({ type: FETCH_TICKETS, payload: response.data });
+};
+
 // BEFORE DEPLOYMENT... UPDATE ACTIONS TO THESE WHICH USE AXIOS WITHOUT THE BASEURL
 
 // export const createQuestion = (formValues) => async (dispatch, getState) => {

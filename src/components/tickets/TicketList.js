@@ -1,7 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
+import { fetchTickets } from "../../actions";
 
-const TicketList = () => {
-  return <div>TicketList</div>;
-};
+class TicketList extends React.Component {
+  componentDidMount() {
+    this.props.fetchTickets();
+  }
 
-export default TicketList;
+  render() {
+    return <div>TicketList</div>;
+  }
+}
+
+export default connect(null, { fetchTickets })(TicketList);
