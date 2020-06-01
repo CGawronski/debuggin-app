@@ -19,6 +19,10 @@ code {
   color: whitesmoke;
 }
 
+.listHeader {
+  margin-left: 20px;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 900px;
@@ -31,6 +35,7 @@ code {
   }
 }
 
-.styled:active {
-  background-color: #f7797d;
+.listContainer {
+  height: auto;
+  margin-top: -40px;
 }
