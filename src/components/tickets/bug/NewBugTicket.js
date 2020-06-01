@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { createBug } from "../../../actions";
 
 import Form from "react-bootstrap/Form";
 import { BodyContainer } from "../../../StyledComponents/BodyContainer";
@@ -8,7 +10,7 @@ import { FormButtons } from "../forms/FormButtons";
 
 class NewBugTicket extends Component {
   onSubmit = (formValues) => {
-    console.log(formValues);
+    this.props.createBug(formValues);
   };
 
   render() {
@@ -48,7 +50,9 @@ const validate = (formValues) => {
   return errors;
 };
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: "newBugTicket",
   validate,
 })(NewBugTicket);
+
+export default connect(null, { createBug })(formWrapped);
