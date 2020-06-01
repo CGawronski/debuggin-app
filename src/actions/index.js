@@ -46,7 +46,7 @@ export const fetchTickets = () => async (dispatch) => {
   dispatch({ type: FETCH_TICKETS, payload: response.data });
 };
 
-// BEFORE DEPLOYMENT... UPDATE ACTIONS TO THESE WHICH USE AXIOS WITHOUT THE BASEURL
+// BEFORE DEPLOYMENT... UPDATE BASEURL in TICKETS.JS
 
 // export const createQuestion = (formValues) => async (dispatch, getState) => {
 //   const { userId } = getState().auth;
