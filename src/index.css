@@ -1,4 +1,8 @@
+/* FONT IMPORT */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+/* GLOBAL STYLING */
 
 body {
   margin: 0;
@@ -14,6 +18,8 @@ code {
     monospace;
 }
 
+/* MAJOR COMPONENTS */
+
 .brandName {
   font-weight: 700;
   color: whitesmoke;
@@ -21,6 +27,11 @@ code {
 
 .listHeader {
   margin-left: 20px;
+}
+
+.listContainer {
+  height: auto;
+  margin-top: -40px;
 }
 
 @media (min-width: 1200px) {
@@ -35,7 +46,31 @@ code {
   }
 }
 
-.listContainer {
-  height: auto;
-  margin-top: -40px;
+/* BUTTONS */
+
+.primaryButton {
+  background-color: #f7797d;
+  color: white;
+  border: 1px solid #f7797d;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  border: 1px solid #f7797d;
+  color: #f7797d;
+}
+
+.primaryButton:hover,
+.primaryButton:focus {
+  box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.4);
+  background: rgba(247, 121, 125, 0.8);
+  border: 1px solid #f99fa4;
+}
+
+.secondaryButton:hover,
+.secondaryButton:focus {
+  box-shadow: 0 0 10px 0 rgba(33, 33, 33, 0.4);
+  background: rgba(220, 220, 220, 0.2);
+  border: 1px solid #f7797d;
+  color: #f7797d;
 }

@@ -1,4 +1,3 @@
-import axios from "axios";
 import tickets from "../tickets";
 
 import {
@@ -26,12 +25,12 @@ export const signOut = () => {
 };
 
 export const createBug = (formValues) => async (dispatch, getState) => {
-  // const { userId } = getState().auth;
+  const { userId } = getState().auth;
   let isClosed = false;
   const ticketType = "bug";
   const response = await tickets.post("/tickets", {
     ...formValues,
-    // userId,
+    userId,
     isClosed,
     ticketType,
   });

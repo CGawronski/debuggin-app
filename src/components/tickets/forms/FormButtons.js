@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import Button from "react-bootstrap/Button";
 
 import {
   StyledButton,
@@ -8,10 +11,12 @@ import {
 export const FormButtons = () => {
   return (
     <>
-      <StyledButton className="mr-2 styled" type="submit">
+      <Button className="mr-2 primaryButton" type="submit">
         Submit
-      </StyledButton>{" "}
-      <SecondaryButton>Cancel</SecondaryButton>
+      </Button>{" "}
+      <Button as={Link} to={"/"} className="secondaryButton">
+        Cancel
+      </Button>
     </>
   );
 };
