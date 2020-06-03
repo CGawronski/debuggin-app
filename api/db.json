@@ -65,5 +65,13 @@
       "ticketType": "bug",
       "id": 7
     }
+  ],
+
+  "comments": [
+    {
+      "id": 7,
+      "userId": "",
+      "content": ""
+    }
   ]
 }
