@@ -3,8 +3,9 @@ import { reduxForm } from "redux-form";
 
 import Form from "react-bootstrap/Form";
 import { BodyContainer } from "../../../StyledComponents/BodyContainer";
-import { QuestionFields } from "../forms/FormFields";
-import { FormButtons } from "../forms/FormButtons";
+import { QuestionFields } from "../form/FormFields";
+import { SubmitTicketButtons } from "../form/FormButtons";
+import { validate } from "../form/validate";
 
 class NewQuestionTicket extends Component {
   onSubmit = (formValues) => {
@@ -19,26 +20,12 @@ class NewQuestionTicket extends Component {
             <h3>New Question Ticket</h3>
           </div>
           <QuestionFields />
-          <FormButtons />
+          <SubmitTicketButtons />
         </Form>
       </BodyContainer>
     );
   }
 }
-
-const validate = (formValues) => {
-  const errors = {};
-
-  if (!formValues.title) {
-    errors.title = "* You must enter a title";
-  }
-
-  if (!formValues.description) {
-    errors.description = "* You must enter a description";
-  }
-
-  return errors;
-};
 
 export default reduxForm({
   form: "newQuestionTicket",

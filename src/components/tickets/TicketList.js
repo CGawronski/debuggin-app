@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchTickets } from "../../actions";
+import { Link } from "react-router-dom";
 
+import { fetchTickets } from "../../actions";
 import { BodyContainer } from "../../StyledComponents/BodyContainer";
-import { StyledButton, SecondaryButton } from "../../StyledComponents/Buttons";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -20,7 +20,12 @@ class TicketList extends React.Component {
       return (
         <>
           <ButtonGroup className="mt-2 mb-3">
-            <Button className="secondaryButton">Edit Ticket</Button>
+            <Button
+              as={Link}
+              to={`/tickets/edit/${ticket.id}`}
+              className="secondaryButton">
+              Edit Ticket
+            </Button>
             <Button className="primaryButton">Close Ticket</Button>
           </ButtonGroup>
         </>
@@ -28,17 +33,23 @@ class TicketList extends React.Component {
     }
   }
 
+  renderTitle(ticket) {
+    if (ticket.title.length > 30) {
+      return <h5>{ticket.title.slice(0, 30)} . . .</h5>;
+    } else {
+      return <h5>{ticket.title}</h5>;
+    }
+  }
+
   renderList() {
     return this.props.tickets.map((ticket) => {
       return (
         <>
-          <ListGroup.Item className="pb-0 pl-0">
-            <ButtonToolBar
-              className="justify-content-between ml-0"
-              key={ticket.id}>
+          <ListGroup.Item className="pb-0 pl-0" key={ticket.id}>
+            <ButtonToolBar className="justify-content-between ml-0">
               <ListGroup>
                 <ListGroup.Item className="pt-1">
-                  <h5>{ticket.title}</h5>
+                  {this.renderTitle(ticket)}
                   {ticket.description}
                 </ListGroup.Item>
               </ListGroup>
@@ -52,7 +63,7 @@ class TicketList extends React.Component {
 
   render() {
     return (
-      <BodyContainer className="listContainer" className>
+      <BodyContainer className="listContainer">
         <h3 className="listHeader">All Tickets</h3>
         <ListGroup variant="flush">{this.renderList()}</ListGroup>
       </BodyContainer>

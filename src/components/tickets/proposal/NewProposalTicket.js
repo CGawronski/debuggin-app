@@ -3,8 +3,9 @@ import { reduxForm } from "redux-form";
 
 import Form from "react-bootstrap/Form";
 import { BodyContainer } from "../../../StyledComponents/BodyContainer";
-import { ProposalFields } from "../forms/FormFields";
-import { FormButtons } from "../forms/FormButtons";
+import { ProposalFields } from "../form/FormFields";
+import { SubmitTicketButtons } from "../form/FormButtons";
+import { validate } from "../form/validate";
 
 class NewProposalTicket extends Component {
   onSubmit = (formValues) => {
@@ -19,34 +20,12 @@ class NewProposalTicket extends Component {
             <h3>New Proposal Ticket</h3>
           </div>
           <ProposalFields />
-          <FormButtons />
+          <SubmitTicketButtons />
         </Form>
       </BodyContainer>
     );
   }
 }
-
-const validate = (formValues) => {
-  const errors = {};
-
-  if (!formValues.title) {
-    errors.title = "* You must enter a title";
-  }
-
-  if (!formValues.description) {
-    errors.description = "* You must enter a description";
-  }
-
-  if (!formValues.solution) {
-    errors.solution = "* Please tell us your potential solution";
-  }
-
-  if (!formValues.alternatives) {
-    errors.alternatives = "* Please list any alternative solutions";
-  }
-
-  return errors;
-};
 
 export default reduxForm({
   form: "newProposalTicket",

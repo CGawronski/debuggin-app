@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 
-import {
-  StyledButton,
-  SecondaryButton,
-} from "../../../StyledComponents/Buttons";
-
-export const FormButtons = () => {
+export const SubmitTicketButtons = () => {
   return (
     <>
       <Button className="mr-2 primaryButton" type="submit">

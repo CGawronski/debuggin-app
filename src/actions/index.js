@@ -1,4 +1,5 @@
 import tickets from "../tickets";
+import history from "../history";
 
 import {
   SIGN_IN,
@@ -36,13 +37,26 @@ export const createBug = (formValues) => async (dispatch, getState) => {
   });
 
   dispatch({ type: CREATE_TICKET, payload: response.data });
-  // history.push("/");
+  history.push("/");
 };
 
 export const fetchTickets = () => async (dispatch) => {
   const response = await tickets.get("/tickets");
 
   dispatch({ type: FETCH_TICKETS, payload: response.data });
+};
+
+export const fetchTicket = (id) => async (dispatch) => {
+  const response = await tickets.get(`/tickets/${id}`);
+
+  dispatch({ type: FETCH_TICKET, payload: response.data });
+};
+
+export const editTicket = (id, formValues) => async (dispatch) => {
+  const response = await tickets.patch(`/tickets/${id}`, formValues);
+
+  dispatch({ type: EDIT_TICKET, payload: response.data });
+  history.push("/");
 };
 
 // BEFORE DEPLOYMENT... UPDATE BASEURL in TICKETS.JS
@@ -81,19 +95,6 @@ export const fetchTickets = () => async (dispatch) => {
 //   const response = await axios.get("/tickets");
 
 //   dispatch({ type: FETCH_TICKETS, payload: response.data });
-// };
-
-// export const fetchTicket = (id) => async (dispatch) => {
-//   const response = await axios.get(`/tickets/${id}`);
-
-//   dispatch({ type: FETCH_TICKET, payload: response.data });
-// };
-
-// export const editTicket = (id, formValues) => async (dispatch) => {
-//   const response = await axios.patch(`/tickets/${id}`, formValues);
-
-//   dispatch({ type: EDIT_TICKET, payload: response.data });
-//   history.push("/");
 // };
 
 // export const closeTicket = (id, formValues, isClosed) => async (dispatch) => {
