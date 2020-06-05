@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { fetchTickets } from "../../actions";
 import { BodyContainer } from "../../StyledComponents/BodyContainer";
+import ModalButton from "../ModalButton";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -26,7 +27,7 @@ class TicketList extends React.Component {
               className="secondaryButton">
               Edit Ticket
             </Button>
-            <Button className="primaryButton">Close Ticket</Button>
+            <ModalButton className="primaryButton">Close Ticket</ModalButton>
           </ButtonGroup>
         </>
       );
@@ -42,10 +43,10 @@ class TicketList extends React.Component {
   }
 
   renderDescription(ticket) {
-    if (ticket.description.length > 40) {
-      return <h5>{ticket.description.slice(0, 40)}...</h5>;
+    if (ticket.description.length > 50) {
+      return <p>{ticket.description.slice(0, 50)} . . .</p>;
     } else {
-      return <h5>{ticket.description}</h5>;
+      return <p>{ticket.description}</p>;
     }
   }
 
