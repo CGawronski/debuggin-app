@@ -1,7 +1,6 @@
 import React from "react";
 import { Router, Route } from "react-router-dom";
 
-import TicketClose from "./components/tickets/TicketClose";
 import EditBugTicket from "./components/tickets/bug/EditBugTicket";
 import TicketList from "./components/tickets/TicketList";
 import TicketShow from "./components/tickets/TicketShow";
@@ -32,7 +31,6 @@ function App() {
             component={NewQuestionTicket}
           />
           <Route path="/tickets/edit/:id" exact component={EditBugTicket} />
-          <Route path="/tickets/close" exact component={TicketClose} />
           <Route path="/tickets/show/:id" exact component={TicketShow} />
         </div>
       </Router>

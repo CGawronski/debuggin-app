@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { fetchTickets } from "../../actions";
 import { BodyContainer } from "../../StyledComponents/BodyContainer";
-import ModalButton from "../ModalButton";
+import ModalButton from "./TicketCloseModal";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
