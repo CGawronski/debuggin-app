@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Nav } from "react-bootstrap";
+import InputGroup from "react-bootstrap/InputGroup";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
+import google from "../images/google-icon-color.svg";
 
 class GoogleAuth extends Component {
   componentDidMount() {

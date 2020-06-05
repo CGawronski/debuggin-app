@@ -18,7 +18,7 @@ export const BugFields = () => {
         component={TextArea}
         placeholder="Please provide as much detail as possible"
         label="Describe the bug"
-        type="TextArea"
+        type="text"
       />
       <Field
         name="environment"

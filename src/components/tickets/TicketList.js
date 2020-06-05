@@ -41,8 +41,16 @@ class TicketList extends React.Component {
     }
   }
 
+  renderDescription(ticket) {
+    if (ticket.description.length > 40) {
+      return <h5>{ticket.description.slice(0, 40)}...</h5>;
+    } else {
+      return <h5>{ticket.description}</h5>;
+    }
+  }
+
   renderList() {
-    return this.props.tickets.map((ticket) => {
+    return this.props.tickets.reverse().map((ticket) => {
       return (
         <>
           <ListGroup.Item className="pb-0 pl-0" key={ticket.id}>
@@ -50,7 +58,7 @@ class TicketList extends React.Component {
               <ListGroup>
                 <ListGroup.Item className="pt-1">
                   {this.renderTitle(ticket)}
-                  {ticket.description}
+                  {this.renderDescription(ticket)}
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup>{this.renderAdminButtons(ticket)}</ListGroup>

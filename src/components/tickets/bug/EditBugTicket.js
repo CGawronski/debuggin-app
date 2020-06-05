@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { fetchTicket, editTicket } from "../../../actions";
+import _ from "lodash";
 
-import Form from "react-bootstrap/Form";
-import { BodyContainer } from "../../../StyledComponents/BodyContainer";
-import { BugFields } from "../form/FormFields";
-import { SubmitTicketButtons } from "../form/FormButtons";
+import { fetchTicket, editTicket } from "../../../actions";
+import TicketForm from "../form/TicketForm";
 import { validate } from "../form/validate";
 
 class EditBugTicket extends Component {
@@ -24,17 +22,17 @@ class EditBugTicket extends Component {
     }
 
     return (
-      <BodyContainer className="mt-4">
-        <Form
-          initialValues={{ title: "some fucking title" }}
-          onSubmit={this.props.handleSubmit(this.onSubmit)}>
-          <div className="mb-3">
-            <h3>Edit Bug Ticket</h3>
-          </div>
-          <BugFields />
-          <SubmitTicketButtons />
-        </Form>
-      </BodyContainer>
+      <TicketForm
+        initialValues={_.pick(
+          this.props.ticket,
+          "title",
+          "description",
+          "environment",
+          "reproduce"
+        )}
+        onSubmit={this.onSubmit}
+        header={"Edit Bug Ticket"}
+      />
     );
   }
 }

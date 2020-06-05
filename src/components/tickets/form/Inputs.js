@@ -17,12 +17,15 @@ export const TextInput = ({ input, placeholder, label, meta }) => {
   );
 };
 
+// NOTE: Having the wrong casing on textarea (eg. TextArea) in '<Form.Control as="textarea"...'
+// will break redux form.
+
 export const TextArea = ({ input, placeholder, label, meta }) => {
   return (
-    <Form.Group controlId="exampleForm.ControlTextArea1">
+    <Form.Group controlId="formTextArea">
       <Form.Label>{label}</Form.Label>
       <Form.Control
-        as="TextArea"
+        as="textarea"
         rows="3"
         placeholder={placeholder}
         {...input}
