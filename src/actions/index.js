@@ -80,6 +80,21 @@ export const createProposal = (formValues) => async (dispatch, getState) => {
   history.push("/");
 };
 
+export const createQuestion = (formValues) => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  let isClosed = false;
+  const ticketType = "question";
+  const response = await tickets.post("/tickets", {
+    ...formValues,
+    userId,
+    isClosed,
+    ticketType,
+  });
+
+  dispatch({ type: CREATE_TICKET, payload: response.data });
+  history.push("/");
+};
+
 // BEFORE DEPLOYMENT... UPDATE BASEURL in TICKETS.JS
 
 // export const createQuestion = (formValues) => async (dispatch, getState) => {

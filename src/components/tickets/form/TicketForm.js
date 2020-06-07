@@ -3,7 +3,6 @@ import { reduxForm } from "redux-form";
 
 import Form from "react-bootstrap/Form";
 import { BodyContainer } from "../../../StyledComponents/BodyContainer";
-import { BugFields } from "../form/FormFields";
 import { SubmitTicketButtons } from "../form/FormButtons";
 import { validate } from "../form/validate";
 

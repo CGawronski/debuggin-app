@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import { BugFields } from "../form/FormFields";
+import { ProposalFields } from "../form/FormFields";
 import { fetchTicket, editTicket } from "../../../actions";
 import TicketForm from "../form/TicketForm";
 
-class EditBugTicket extends Component {
+class EditProposalTicket extends Component {
   componentDidMount() {
     this.props.fetchTicket(this.props.match.params.id);
   }
@@ -22,14 +22,14 @@ class EditBugTicket extends Component {
 
     return (
       <TicketForm
-        header="Edit Bug Ticket"
-        formFields={BugFields}
+        header="Edit Proposal Ticket"
+        formFields={ProposalFields}
         initialValues={_.pick(
           this.props.ticket,
           "title",
           "description",
-          "environment",
-          "reproduce"
+          "solution",
+          "alternatives"
         )}
         onSubmit={this.onSubmit}
       />
@@ -42,5 +42,5 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(mapStateToProps, { fetchTicket, editTicket })(
-  EditBugTicket
+  EditProposalTicket
 );

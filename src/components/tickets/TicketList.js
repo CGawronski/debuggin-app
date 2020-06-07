@@ -17,6 +17,20 @@ class TicketList extends React.Component {
     this.props.fetchTickets();
   }
 
+  renderLinkPath(ticket) {
+    if (ticket.ticketType === "bug") {
+      return `/tickets/edit-bug/${ticket.id}`;
+    }
+
+    if (ticket.ticketType === "question") {
+      return `/tickets/edit-question/${ticket.id}`;
+    }
+
+    if (ticket.ticketType === "proposal") {
+      return `/tickets/edit-proposal/${ticket.id}`;
+    }
+  }
+
   renderAdminButtons(ticket) {
     if (ticket.isClosed) {
       return (
@@ -34,7 +48,7 @@ class TicketList extends React.Component {
           <ButtonGroup className="mt-2 mb-3 listButtons">
             <Button
               as={Link}
-              to={`/tickets/edit/${ticket.id}`}
+              to={this.renderLinkPath(ticket)}
               className="secondaryButton">
               Edit Ticket
             </Button>

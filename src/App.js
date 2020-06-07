@@ -2,6 +2,8 @@ import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 
 import EditBugTicket from "./components/tickets/bug/EditBugTicket";
+import EditProposalTicket from "./components/tickets/proposal/EditProposalTicket";
+import EditQuestionTicket from "./components/tickets/question/EditQuestionTicket";
 import TicketList from "./components/tickets/TicketList";
 import TicketClose from "./components/tickets/TicketClose";
 import TicketShow from "./components/tickets/TicketShow";
@@ -32,7 +34,21 @@ function App() {
               exact
               component={NewQuestionTicket}
             />
-            <Route path="/tickets/edit/:id" exact component={EditBugTicket} />
+            <Route
+              path="/tickets/edit-bug/:id"
+              exact
+              component={EditBugTicket}
+            />
+            <Route
+              path="/tickets/edit-proposal/:id"
+              exact
+              component={EditProposalTicket}
+            />
+            <Route
+              path="/tickets/edit-question/:id"
+              exact
+              component={EditQuestionTicket}
+            />
             <Route path="/tickets/close/:id" exact component={TicketClose} />
             <Route path="/tickets/:id" exact component={TicketShow} />
           </Switch>

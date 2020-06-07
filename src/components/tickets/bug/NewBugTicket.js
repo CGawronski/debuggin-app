@@ -9,15 +9,11 @@ class NewBugTicket extends Component {
     this.props.createBug(formValues);
   };
 
-  renderFormFields() {
-    return <BugFields />;
-  }
-
   render() {
     return (
       <TicketForm
         header="New Bug Ticket"
-        formFields={this.renderFormFields}
+        formFields={BugFields}
         onSubmit={this.onSubmit}
       />
     );
