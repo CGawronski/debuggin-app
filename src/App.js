@@ -1,8 +1,9 @@
 import React from "react";
-import { Router, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 
 import EditBugTicket from "./components/tickets/bug/EditBugTicket";
 import TicketList from "./components/tickets/TicketList";
+import TicketClose from "./components/tickets/TicketClose";
 import TicketShow from "./components/tickets/TicketShow";
 import NewBugTicket from "./components/tickets/bug/NewBugTicket";
 import NewProposalTicket from "./components/tickets/proposal/NewProposalTicket";
@@ -18,20 +19,23 @@ function App() {
         <ScrollToTop />
         <div>
           <Header />
-          <Route path="/" exact component={TicketList} />
-          <Route path="/tickets/new-bug" exact component={NewBugTicket} />
-          <Route
-            path="/tickets/new-proposal"
-            exact
-            component={NewProposalTicket}
-          />
-          <Route
-            path="/tickets/new-question"
-            exact
-            component={NewQuestionTicket}
-          />
-          <Route path="/tickets/edit/:id" exact component={EditBugTicket} />
-          <Route path="/tickets/show/:id" exact component={TicketShow} />
+          <Switch>
+            <Route path="/" exact component={TicketList} />
+            <Route path="/tickets/new-bug" exact component={NewBugTicket} />
+            <Route
+              path="/tickets/new-proposal"
+              exact
+              component={NewProposalTicket}
+            />
+            <Route
+              path="/tickets/new-question"
+              exact
+              component={NewQuestionTicket}
+            />
+            <Route path="/tickets/edit/:id" exact component={EditBugTicket} />
+            <Route path="/tickets/close/:id" exact component={TicketClose} />
+            <Route path="/tickets/:id" exact component={TicketShow} />
+          </Switch>
         </div>
       </Router>
     </div>

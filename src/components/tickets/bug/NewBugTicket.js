@@ -9,7 +9,7 @@ class NewBugTicket extends Component {
   };
 
   render() {
-    return <TicketForm onSubmit={this.onSubmit} />;
+    return <TicketForm header="New Bug Ticket" onSubmit={this.onSubmit} />;
   }
 }
 

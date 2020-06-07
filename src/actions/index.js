@@ -59,6 +59,12 @@ export const editTicket = (id, formValues) => async (dispatch) => {
   history.push("/");
 };
 
+export const closeTicket = (id, formValues, isClosed) => async (dispatch) => {
+  const response = await tickets.patch(`/tickets/${id}`, formValues, isClosed);
+
+  dispatch({ type: CLOSE_TICKET, payload: response.data });
+};
+
 // BEFORE DEPLOYMENT... UPDATE BASEURL in TICKETS.JS
 
 // export const createQuestion = (formValues) => async (dispatch, getState) => {
@@ -88,19 +94,6 @@ export const editTicket = (id, formValues) => async (dispatch) => {
 //   });
 
 //   dispatch({ type: CREATE_TICKET, payload: response.data });
-//   history.push("/");
-// };
-
-// export const fetchTickets = () => async (dispatch) => {
-//   const response = await axios.get("/tickets");
-
-//   dispatch({ type: FETCH_TICKETS, payload: response.data });
-// };
-
-// export const closeTicket = (id, formValues, isClosed) => async (dispatch) => {
-//   const response = await axios.patch(`/tickets/${id}`, formValues, isClosed);
-
-//   dispatch({ type: CLOSE_TICKET, payload: response.data });
 //   history.push("/");
 // };
 

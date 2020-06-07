@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { fetchTickets } from "../../actions";
 import { BodyContainer } from "../../StyledComponents/BodyContainer";
-import ModalButton from "./TicketCloseModal";
+import CloseTicketModal from "./CloseTicketModal";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ButtonToolBar from "react-bootstrap/ButtonToolBar";
 import Button from "react-bootstrap/Button";
+import Badge from "react-bootstrap/Badge";
 
 class TicketList extends React.Component {
   componentDidMount() {
@@ -17,17 +18,27 @@ class TicketList extends React.Component {
   }
 
   renderAdminButtons(ticket) {
+    if (ticket.isClosed) {
+      return (
+        <h4>
+          <Badge pill className="ticketClosed">
+            TICKET CLOSED
+          </Badge>
+        </h4>
+      );
+    }
+
     if (ticket.userId === this.props.currentUserId) {
       return (
         <>
-          <ButtonGroup className="mt-2 mb-3">
+          <ButtonGroup className="mt-2 mb-3 listButtons">
             <Button
               as={Link}
               to={`/tickets/edit/${ticket.id}`}
               className="secondaryButton">
               Edit Ticket
             </Button>
-            <ModalButton className="primaryButton">Close Ticket</ModalButton>
+            <CloseTicketModal id={`${ticket.id}`} />
           </ButtonGroup>
         </>
       );
@@ -35,10 +46,18 @@ class TicketList extends React.Component {
   }
 
   renderTitle(ticket) {
-    if (ticket.title.length > 30) {
-      return <h5>{ticket.title.slice(0, 30)} . . .</h5>;
+    if (ticket.title.length > 40) {
+      return (
+        <Link className="ticketTitle" to={`/tickets/${ticket.id}`}>
+          <h5>{ticket.title.slice(0, 40)} . . .</h5>
+        </Link>
+      );
     } else {
-      return <h5>{ticket.title}</h5>;
+      return (
+        <Link className="ticketTitle" to={`/tickets/${ticket.id}`}>
+          <h5>{ticket.title}</h5>
+        </Link>
+      );
     }
   }
 

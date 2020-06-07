@@ -74,3 +74,35 @@ code {
   border: 1px solid #f7797d;
   color: #f7797d;
 }
+
+.ticketClosed {
+  color: white;
+  background-color: #9bd691;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+/* STYLED DIVS */
+
+@media (max-width: 900px) {
+  .ticketClosed {
+    margin-left: 20px;
+    margin-top: -0.25vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .listButtons {
+    margin-left: 20px;
+    margin-top: -1vh;
+  }
+}
+
+/* LINKS */
+
+.ticketTitle {
+  color: #3d414b;
+}
+.ticketTitle:hover {
+  color: #9bd691;
+}

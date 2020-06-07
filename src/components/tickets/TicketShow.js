@@ -1,7 +1,85 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchTicket } from "../../actions";
 
-const TicketShow = () => {
-  return <div>TicketShow</div>;
+import ListGroup from "react-bootstrap/ListGroup";
+
+import { BodyContainer } from "../../StyledComponents/BodyContainer";
+
+class TicketShow extends Component {
+  componentDidMount() {
+    this.props.fetchTicket(this.props.match.params.id);
+  }
+
+  renderFields() {
+    const {
+      environment,
+      reproduce,
+      solution,
+      alternatives,
+    } = this.props.ticket;
+
+    const itemStyle = "pb-0 pl-0";
+
+    if (environment) {
+      return (
+        <>
+          <ListGroup.Item className={itemStyle}>
+            <h5>Environment</h5>
+            <p>{environment}</p>
+          </ListGroup.Item>
+          <ListGroup.Item className={itemStyle}>
+            <h5>Steps to reproduce</h5>
+            <p>{reproduce}</p>
+          </ListGroup.Item>
+        </>
+      );
+    }
+    if (solution) {
+      return (
+        <>
+          <ListGroup.Item className={itemStyle}>
+            <h5>Proposed solution</h5>
+            <p>{solution}</p>
+          </ListGroup.Item>
+          <ListGroup.Item className={itemStyle}>
+            <h5>Alternative proposals</h5>
+            <p>{alternatives}</p>
+          </ListGroup.Item>
+        </>
+      );
+    }
+  }
+
+  render() {
+    if (!this.props.ticket) {
+      return <div>Loading...</div>;
+    }
+
+    const { title, description } = this.props.ticket;
+
+    return (
+      <BodyContainer>
+        <div>
+          <ListGroup variant="flush">
+            <h3>Bug Ticket</h3>
+            <ListGroup.Item className="pb-0 pl-0">
+              <h4>{title}</h4>
+            </ListGroup.Item>
+            <ListGroup.Item className="pb-0 pl-0">
+              <h5>Description</h5>
+              <p>{description}</p>
+            </ListGroup.Item>
+            {this.renderFields()}
+          </ListGroup>
+        </div>
+      </BodyContainer>
+    );
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return { ticket: state.tickets[ownProps.match.params.id] };
 };
 
-export default TicketShow;
+export default connect(mapStateToProps, { fetchTicket })(TicketShow);
