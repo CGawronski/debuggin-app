@@ -3,8 +3,8 @@
     {
       "title": "This is a Proposal Ticket",
       "description": "Made by someone with a proposal",
-      "environment": "test",
-      "reproduce": "",
+      "solution": "Just some way to make the software better",
+      "alternatives": "And maybe some alternate solutions",
       "userId": null,
       "isClosed": false,
       "ticketType": "proposal",
@@ -13,8 +13,6 @@
     {
       "title": "This is a Question Ticket",
       "description": "Made by someone with a question",
-      "environment": "test",
-      "reproduce": "",
       "userId": null,
       "isClosed": false,
       "ticketType": "question",
@@ -24,8 +22,8 @@
     {
       "title": "This ticket has no 'Edit/Close' buttons ",
       "description": "Because it has someone elses id associated with it",
-      "environment": "test",
-      "reproduce": "",
+      "environment": "Sign in to create tickets with your id which only you can edit or close",
+      "reproduce": "...",
       "userId": "1298318273",
       "isClosed": false,
       "ticketType": "bug",
@@ -34,8 +32,8 @@
     {
       "title": "Create, Read, Edit and Close tickets",
       "description": "Sign in to make your own tickets with a unique id",
-      "environment": "test",
-      "reproduce": "",
+      "environment": "This is my production environment",
+      "reproduce": "These are the steps to reproduce the bug",
       "userId": null,
       "isClosed": false,
       "ticketType": "bug",
@@ -44,8 +42,8 @@
     {
       "title": "Welcome to Debuggin' !",
       "description": "A bug tracking app created with React and Redux",
-      "environment": "test",
-      "reproduce": "",
+      "environment": "The production environment goes here",
+      "reproduce": "Steps to reproduce go here",
       "userId": null,
       "isClosed": false,
       "ticketType": "bug",

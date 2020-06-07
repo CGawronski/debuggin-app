@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://debuggin-app-clg.herokuapp.com",
+  baseURL: "http://localhost:4000",
 });
 
-// "http://localhost:4000"
+// "https://debuggin-app-clg.herokuapp.com"

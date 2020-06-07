@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTicket } from "../../actions";
+import { Link } from "react-router-dom";
 
 import ListGroup from "react-bootstrap/ListGroup";
+import Button from "react-bootstrap/Button";
 
 import { BodyContainer } from "../../StyledComponents/BodyContainer";
 
@@ -82,6 +84,9 @@ class TicketShow extends Component {
             </ListGroup.Item>
             {this.renderFields()}
           </ListGroup>
+          <Button as={Link} to="/" className="primaryButton mt-2">
+            Back
+          </Button>
         </div>
       </BodyContainer>
     );
