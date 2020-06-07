@@ -19,7 +19,7 @@ class TicketForm extends Component {
           <div className="mb-3">
             <h3>{this.props.header}</h3>
           </div>
-          <BugFields />
+          {this.props.formFields()}
           <SubmitTicketButtons />
         </Form>
       </BodyContainer>
