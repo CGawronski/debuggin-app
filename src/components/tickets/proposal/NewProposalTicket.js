@@ -17,7 +17,7 @@ class NewProposalTicket extends Component {
   render() {
     return (
       <TicketForm
-        header="New Question Ticket"
+        header="New Proposal Ticket"
         formFields={this.renderFormFields}
         onSubmit={this.onSubmit}
       />

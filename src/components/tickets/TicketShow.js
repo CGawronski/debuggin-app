@@ -51,6 +51,16 @@ class TicketShow extends Component {
     }
   }
 
+  renderTitle() {
+    if (this.props.ticket.ticketType === "bug") {
+      return <h3>Bug Ticket</h3>;
+    }
+    if (this.props.ticket.ticketType === "proposal") {
+      return <h3>Proposal Ticket</h3>;
+    }
+    return <h3>Question Ticket</h3>;
+  }
+
   render() {
     if (!this.props.ticket) {
       return <div>Loading...</div>;
@@ -62,7 +72,7 @@ class TicketShow extends Component {
       <BodyContainer>
         <div>
           <ListGroup variant="flush">
-            <h3>Bug Ticket</h3>
+            {this.renderTitle()}
             <ListGroup.Item className="pb-0 pl-0">
               <h4>{title}</h4>
             </ListGroup.Item>

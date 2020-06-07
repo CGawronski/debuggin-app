@@ -7,7 +7,6 @@ import {
   CREATE_TICKET,
   FETCH_TICKETS,
   FETCH_TICKET,
-  DELETE_TICKET,
   CLOSE_TICKET,
   EDIT_TICKET,
 } from "./types";
