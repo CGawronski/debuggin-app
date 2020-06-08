@@ -84,23 +84,26 @@ class TicketList extends React.Component {
   }
 
   renderList() {
-    return this.props.tickets.reverse().map((ticket) => {
-      return (
-        <>
-          <ListGroup.Item className="pb-0 pl-0" key={ticket.id}>
-            <ButtonToolBar className="justify-content-between ml-0">
-              <ListGroup>
-                <ListGroup.Item className="pt-1">
-                  {this.renderTitle(ticket)}
-                  {this.renderDescription(ticket)}
-                </ListGroup.Item>
-              </ListGroup>
-              <ListGroup>{this.renderAdminButtons(ticket)}</ListGroup>
-            </ButtonToolBar>
-          </ListGroup.Item>
-        </>
-      );
-    });
+    return this.props.tickets
+      .slice()
+      .reverse()
+      .map((ticket) => {
+        return (
+          <>
+            <ListGroup.Item className="pb-0 pl-0" key={ticket.id}>
+              <ButtonToolBar className="justify-content-between ml-0">
+                <ListGroup>
+                  <ListGroup.Item className="pt-1">
+                    {this.renderTitle(ticket)}
+                    {this.renderDescription(ticket)}
+                  </ListGroup.Item>
+                </ListGroup>
+                <ListGroup>{this.renderAdminButtons(ticket)}</ListGroup>
+              </ButtonToolBar>
+            </ListGroup.Item>
+          </>
+        );
+      });
   }
 
   render() {

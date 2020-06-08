@@ -18,6 +18,12 @@ code {
     monospace;
 }
 
+@media (max-width: 700px) {
+  p {
+    margin: 0;
+  }
+}
+
 /* MAJOR COMPONENTS */
 
 .brandName {
