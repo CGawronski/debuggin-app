@@ -39,7 +39,7 @@ class GoogleAuth extends Component {
     this.props.onClick();
   };
 
-  renderAuthButton(props) {
+  renderAuthButton() {
     if (this.props.isSignedIn === null) {
       return <Nav.Link>Sign In</Nav.Link>;
     } else if (this.props.isSignedIn) {
