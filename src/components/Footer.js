@@ -1,5 +1,5 @@
-import React, { Component, useState } from "react";
-import { Navbar, NavDropdown, Nav, Container, Button } from "react-bootstrap";
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
 export default function Footer() {
   return (
