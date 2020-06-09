@@ -15,8 +15,8 @@ export default function Footer() {
         </Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Item>
-            <div className="footerText">
-              <p>Colin Gawronski</p>
+            <div>
+              <h7 className="footerText">Colin Gawronski</h7>
             </div>
           </Nav.Item>
         </Nav>
