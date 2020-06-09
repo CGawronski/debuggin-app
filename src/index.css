@@ -4,12 +4,25 @@
 
 /* GLOBAL STYLING */
 
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  min-height: 100vh;
+  display: block;
+  position: relative;
+  padding-bottom: 65px;
   padding-top: 65px;
 }
 
@@ -38,6 +51,16 @@ code {
 .listContainer {
   height: auto;
   margin-top: -40px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerText {
+  margin-bottom: -15px;
 }
 
 @media (min-width: 1200px) {

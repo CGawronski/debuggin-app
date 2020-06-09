@@ -11,6 +11,7 @@ import NewBugTicket from "./components/tickets/bug/NewBugTicket";
 import NewProposalTicket from "./components/tickets/proposal/NewProposalTicket";
 import NewQuestionTicket from "./components/tickets/question/NewQuestionTicket";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import history from "./history";
 import ScrollToTop from "./ScrollToTop";
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="/tickets/close/:id" exact component={TicketClose} />
             <Route path="/tickets/:id" exact component={TicketShow} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </div>
