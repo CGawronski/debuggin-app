@@ -35,7 +35,7 @@
       "environment": "This is my production environment",
       "reproduce": "These are the steps to reproduce the bug",
       "userId": "12983a18273",
-      "isClosed": false,
+      "isClosed": true,
       "ticketType": "bug",
       "id": 9
     },
@@ -45,9 +45,9 @@
       "environment": "The production environment goes here",
       "reproduce": "Steps to reproduce go here",
       "userId": "129a8318273",
-      "isClosed": false,
+      "isClosed": true,
       "ticketType": "bug",
-      "id": 10
+      "id": 11
     }
   ],
   "comments": [
