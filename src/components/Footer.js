@@ -1,9 +1,7 @@
-import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import React, { Component, useState } from "react";
+import { Navbar, NavDropdown, Nav, Container, Button } from "react-bootstrap";
 
 export default function Footer() {
-  const copywrite = "\u00A9";
-
   return (
     <Navbar bg="light" className="footer">
       <Container>
@@ -17,8 +15,8 @@ export default function Footer() {
         </Navbar.Brand>
         <Nav className="ml-auto">
           <Nav.Item>
-            <div>
-              <p className="footerText">{copywrite} Colin Gawronski</p>
+            <div className="footerText">
+              <p>Colin Gawronski</p>
             </div>
           </Nav.Item>
         </Nav>

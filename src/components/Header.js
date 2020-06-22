@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Navbar, NavDropdown, Nav, Container } from "react-bootstrap";
+import React, { Component, useState } from "react";
+import { Navbar, NavDropdown, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import GoogleAuth from "./GoogleAuth";
