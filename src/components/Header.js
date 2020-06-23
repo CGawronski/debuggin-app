@@ -3,6 +3,7 @@ import { Navbar, NavDropdown, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import GoogleAuth from "./GoogleAuth";
+import logo from "../images/debuggin-logo.svg";
 
 export default function Header() {
   const [expanded, setExpanded] = useState(false);
@@ -21,6 +22,13 @@ export default function Header() {
           to="/"
           className="brandName"
           onClick={() => setExpanded(false)}>
+          <img
+            alt=""
+            src={logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{" "}
           DEBUGGIN'
         </Navbar.Brand>
         <Navbar.Toggle

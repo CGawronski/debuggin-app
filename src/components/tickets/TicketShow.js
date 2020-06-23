@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchTicket } from "../../actions";
 import { Link } from "react-router-dom";
 
+import Comment from "../tickets/form/comments/Comment";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 
@@ -71,24 +72,24 @@ class TicketShow extends Component {
     const { title, description } = this.props.ticket;
 
     return (
-      <BodyContainer>
-        <div>
-          <ListGroup variant="flush">
-            {this.renderTitle()}
-            <ListGroup.Item className="pb-0 pl-0">
-              <h4>{title}</h4>
-            </ListGroup.Item>
-            <ListGroup.Item className="pb-0 pl-0">
-              <h5>Description</h5>
-              <p>{description}</p>
-            </ListGroup.Item>
-            {this.renderFields()}
-          </ListGroup>
-          <Button as={Link} to="/" className="primaryButton mt-2">
-            Back
-          </Button>
-        </div>
-      </BodyContainer>
+      <>
+        <BodyContainer>
+          <div>
+            <ListGroup variant="flush">
+              {this.renderTitle()}
+              <ListGroup.Item className="pb-0 pl-0">
+                <h4>{title}</h4>
+              </ListGroup.Item>
+              <ListGroup.Item className="pb-0 pl-0">
+                <h5>Description</h5>
+                <p>{description}</p>
+              </ListGroup.Item>
+              {this.renderFields()}
+            </ListGroup>
+          </div>
+        </BodyContainer>
+        <Comment />
+      </>
     );
   }
 }
