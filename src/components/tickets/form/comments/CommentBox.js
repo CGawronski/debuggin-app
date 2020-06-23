@@ -5,7 +5,7 @@ import CommentForm from "./CommentForm";
 import { CommentFields } from "./CommentFields";
 import { createComment } from "../../../../actions";
 
-function Comment(props) {
+function CommentBox(props) {
   // this.props.ticketId for the ticket the comment belongs to
   const ticketId = props.ticketId;
 
@@ -22,4 +22,4 @@ function Comment(props) {
   );
 }
 
-export default connect(null, { createComment })(Comment);
+export default connect(null, { createComment })(CommentBox);

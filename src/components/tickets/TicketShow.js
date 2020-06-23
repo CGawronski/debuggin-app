@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTicket } from "../../actions";
 
-import Comment from "../tickets/form/comments/Comment";
+import CommentBox from "./form/comments/CommentBox";
 import ListGroup from "react-bootstrap/ListGroup";
 
 import { BodyContainer } from "../../StyledComponents/BodyContainer";
@@ -86,7 +86,7 @@ class TicketShow extends Component {
             </ListGroup>
           </div>
         </BodyContainer>
-        <Comment ticketId={this.props.match.params.id} />
+        <CommentBox ticketId={this.props.match.params.id} />
       </>
     );
   }

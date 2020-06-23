@@ -1,5 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 
 const renderError = ({ error, touched }) => {
   if (touched && error) {
@@ -9,7 +11,7 @@ const renderError = ({ error, touched }) => {
 
 export const TextInput = ({ input, placeholder, label, meta }) => {
   return (
-    <Form.Group controlId="formTitle">
+    <Form.Group controlid="formTitle">
       <Form.Label>{label}</Form.Label>
       <Form.Control type="text" placeholder={placeholder} {...input} />
       {renderError(meta)}
@@ -22,7 +24,7 @@ export const TextInput = ({ input, placeholder, label, meta }) => {
 
 export const TextArea = ({ input, placeholder, label, meta }) => {
   return (
-    <Form.Group controlId="formTextArea">
+    <Form.Group controlid="formTextArea">
       <Form.Label>{label}</Form.Label>
       <Form.Control
         as="textarea"
@@ -32,5 +34,17 @@ export const TextArea = ({ input, placeholder, label, meta }) => {
       />
       {renderError(meta)}
     </Form.Group>
+  );
+};
+
+export const InputName = ({ input, placeholder, label, meta }) => {
+  return (
+    <InputGroup controlid="formTextArea" className="mt-3">
+      <InputGroup.Prepend>
+        <InputGroup.Text>{label}</InputGroup.Text>
+      </InputGroup.Prepend>
+      <FormControl placeholder={placeholder} {...input} />
+      {renderError(meta)}
+    </InputGroup>
   );
 };
