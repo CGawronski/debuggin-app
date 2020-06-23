@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTicket } from "../../actions";
-import { Link } from "react-router-dom";
 
 import Comment from "../tickets/form/comments/Comment";
 import ListGroup from "react-bootstrap/ListGroup";
-import Button from "react-bootstrap/Button";
 
 import { BodyContainer } from "../../StyledComponents/BodyContainer";
 
