@@ -3,21 +3,23 @@ import { connect } from "react-redux";
 
 import CommentForm from "./CommentForm";
 import { CommentFields } from "./CommentFields";
+import { createComment } from "../../../../actions";
 
-class Comment extends Component {
-  onSubmit = (formValues) => {
-    console.log("Submitted comment");
+function Comment(props) {
+  // this.props.ticketId for the ticket the comment belongs to
+  const ticketId = props.ticketId;
+
+  const onSubmit = (formValues) => {
+    props.createComment(formValues, ticketId);
   };
 
-  render() {
-    return (
-      <CommentForm
-        header="Comment"
-        formFields={CommentFields}
-        onSubmit={this.onSubmit}
-      />
-    );
-  }
+  return (
+    <CommentForm
+      header="Comment"
+      formFields={CommentFields}
+      onSubmit={onSubmit}
+    />
+  );
 }
 
-export default connect(null, {})(Comment);
+export default connect(null, { createComment })(Comment);

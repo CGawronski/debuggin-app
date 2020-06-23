@@ -22,7 +22,7 @@ class TicketShow extends Component {
 
     const itemStyle = "pb-0 pl-0";
 
-    if (environment) {
+    if (this.props.ticket.ticketType === "bug") {
       return (
         <>
           <ListGroup.Item className={itemStyle}>
@@ -36,7 +36,7 @@ class TicketShow extends Component {
         </>
       );
     }
-    if (solution) {
+    if (this.props.ticket.ticketType === "proposal") {
       return (
         <>
           <ListGroup.Item className={itemStyle}>
@@ -86,7 +86,7 @@ class TicketShow extends Component {
             </ListGroup>
           </div>
         </BodyContainer>
-        <Comment />
+        <Comment ticketId={this.props.match.params.id} />
       </>
     );
   }

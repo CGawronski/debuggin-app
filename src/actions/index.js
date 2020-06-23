@@ -9,6 +9,7 @@ import {
   FETCH_TICKET,
   CLOSE_TICKET,
   EDIT_TICKET,
+  CREATE_COMMENT,
 } from "./types";
 
 export const signIn = (userId) => {
@@ -36,6 +37,21 @@ export const createBug = (formValues) => async (dispatch, getState) => {
   });
 
   dispatch({ type: CREATE_TICKET, payload: response.data });
+  history.push("/");
+};
+
+export const createComment = (formValues, ticketId) => async (
+  dispatch,
+  getState
+) => {
+  const { userId } = getState().auth;
+  const response = await tickets.post("/comments", {
+    ...formValues,
+    userId,
+    ticketId,
+  });
+
+  dispatch({ type: CREATE_COMMENT, payload: response.data });
   history.push("/");
 };
 

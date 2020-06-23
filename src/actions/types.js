@@ -9,3 +9,5 @@ export const FETCH_TICKET = "FETCH_TICKET";
 export const DELETE_TICKET = "DELETE_TICKET";
 export const CLOSE_TICKET = "CLOSE_TICKET";
 export const EDIT_TICKET = "EDIT_TICKET";
+
+export const CREATE_COMMENT = "CREATE_COMMENT";
