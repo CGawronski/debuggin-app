@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import CommentForm from "./CommentForm";
 import { CommentFields } from "./CommentFields";
-import { createComment } from "../../../../actions";
+import { createComment } from "../../actions";
 
 function CommentBox(props) {
   // this.props.ticketId for the ticket the comment belongs to

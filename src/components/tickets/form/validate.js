@@ -25,5 +25,13 @@ export const validate = (formValues) => {
     errors.alternatives = "* Please list any alternative solutions";
   }
 
+  if (!formValues.comment) {
+    errors.alternatives = "* This field cannot be empty";
+  }
+
+  if (!formValues.name) {
+    errors.alternatives = "* Please enter your name";
+  }
+
   return errors;
 };

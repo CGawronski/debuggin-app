@@ -93,7 +93,7 @@ class TicketList extends React.Component {
             <ListGroup.Item className="pb-0 pl-0" key={ticket.id}>
               <ButtonToolBar className="justify-content-between ml-0">
                 <ListGroup>
-                  <ListGroup.Item className="pt-1">
+                  <ListGroup.Item className="pt-1" key={ticket.id}>
                     {this.renderTitle(ticket)}
                     {this.renderDescription(ticket)}
                   </ListGroup.Item>

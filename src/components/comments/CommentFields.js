@@ -1,10 +1,7 @@
 import React from "react";
 import { Field } from "redux-form";
 
-import { TextArea } from "../Inputs";
-import { InputName } from "../Inputs";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
+import { TextArea, InputName } from "../tickets/form/Inputs";
 
 export const CommentFields = () => {
   return (

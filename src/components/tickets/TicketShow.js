@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchTicket } from "../../actions";
+import { fetchTicket, fetchComments } from "../../actions";
 
-import CommentBox from "./form/comments/CommentBox";
+import CommentBox from "../comments/CommentBox";
+import CommentList from "../comments/CommentList";
 import ListGroup from "react-bootstrap/ListGroup";
 
 import { BodyContainer } from "../../StyledComponents/BodyContainer";
@@ -10,6 +11,7 @@ import { BodyContainer } from "../../StyledComponents/BodyContainer";
 class TicketShow extends Component {
   componentDidMount() {
     this.props.fetchTicket(this.props.match.params.id);
+    this.props.fetchComments();
   }
 
   renderFields() {
@@ -86,6 +88,7 @@ class TicketShow extends Component {
             </ListGroup>
           </div>
         </BodyContainer>
+        <CommentList ticketId={this.props.match.params.id} />
         <CommentBox ticketId={this.props.match.params.id} />
       </>
     );
@@ -96,4 +99,6 @@ const mapStateToProps = (state, ownProps) => {
   return { ticket: state.tickets[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { fetchTicket })(TicketShow);
+export default connect(mapStateToProps, { fetchTicket, fetchComments })(
+  TicketShow
+);

@@ -11,3 +11,4 @@ export const CLOSE_TICKET = "CLOSE_TICKET";
 export const EDIT_TICKET = "EDIT_TICKET";
 
 export const CREATE_COMMENT = "CREATE_COMMENT";
+export const FETCH_COMMENTS = "FETCH_COMMENTS";

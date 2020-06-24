@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { reduxForm } from "redux-form";
+import { reduxForm, reset } from "redux-form";
 
 import Form from "react-bootstrap/Form";
 
-import { CommentContainer } from "../../../../StyledComponents/CommentContainer";
-import { SubmitTicketButtons } from "../FormButtons";
-import { validate } from "../validate";
+import { CommentContainer } from "../../StyledComponents/CommentContainer";
+import { CommentButtons } from "./CommentButtons";
+import { validate } from "../tickets/form/validate";
 
 class CommentForm extends Component {
   onSubmit = (formValues) => {
@@ -14,19 +14,21 @@ class CommentForm extends Component {
 
   render() {
     return (
-      <CommentContainer className="mt-4">
+      <CommentContainer>
         <Form onSubmit={this.props.handleSubmit(this.onSubmit)}>
           <h4>{this.props.header}</h4>
-
           {this.props.formFields()}
-          <SubmitTicketButtons />
+          <CommentButtons />
         </Form>
       </CommentContainer>
     );
   }
 }
 
+const afterSubmit = (result, dispatch) => dispatch(reset("commentForm"));
+
 export default reduxForm({
   form: "commentForm",
+  onSubmitSuccess: afterSubmit,
   validate,
 })(CommentForm);

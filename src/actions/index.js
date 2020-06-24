@@ -1,5 +1,6 @@
 import tickets from "../tickets";
 import history from "../history";
+import { reset } from "redux-form";
 
 import {
   SIGN_IN,
@@ -10,7 +11,10 @@ import {
   CLOSE_TICKET,
   EDIT_TICKET,
   CREATE_COMMENT,
+  FETCH_COMMENTS,
 } from "./types";
+
+// SIGN IN
 
 export const signIn = (userId) => {
   return {
@@ -25,20 +29,7 @@ export const signOut = () => {
   };
 };
 
-export const createBug = (formValues) => async (dispatch, getState) => {
-  const { userId } = getState().auth;
-  let isClosed = false;
-  const ticketType = "bug";
-  const response = await tickets.post("/tickets", {
-    ...formValues,
-    userId,
-    isClosed,
-    ticketType,
-  });
-
-  dispatch({ type: CREATE_TICKET, payload: response.data });
-  history.push("/");
-};
+// COMMENTS
 
 export const createComment = (formValues, ticketId) => async (
   dispatch,
@@ -52,32 +43,29 @@ export const createComment = (formValues, ticketId) => async (
   });
 
   dispatch({ type: CREATE_COMMENT, payload: response.data });
+};
+
+export const fetchComments = () => async (dispatch) => {
+  const response = await tickets.get("/comments");
+
+  dispatch({ type: FETCH_COMMENTS, payload: response.data });
+};
+
+// TICKETS
+
+export const createBug = (formValues) => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  let isClosed = false;
+  const ticketType = "bug";
+  const response = await tickets.post("/tickets", {
+    ...formValues,
+    userId,
+    isClosed,
+    ticketType,
+  });
+
+  dispatch({ type: CREATE_TICKET, payload: response.data });
   history.push("/");
-};
-
-export const fetchTickets = () => async (dispatch) => {
-  const response = await tickets.get("/tickets");
-
-  dispatch({ type: FETCH_TICKETS, payload: response.data });
-};
-
-export const fetchTicket = (id) => async (dispatch) => {
-  const response = await tickets.get(`/tickets/${id}`);
-
-  dispatch({ type: FETCH_TICKET, payload: response.data });
-};
-
-export const editTicket = (id, formValues) => async (dispatch) => {
-  const response = await tickets.patch(`/tickets/${id}`, formValues);
-
-  dispatch({ type: EDIT_TICKET, payload: response.data });
-  history.push("/");
-};
-
-export const closeTicket = (id, formValues, isClosed) => async (dispatch) => {
-  const response = await tickets.patch(`/tickets/${id}`, formValues, isClosed);
-
-  dispatch({ type: CLOSE_TICKET, payload: response.data });
 };
 
 export const createProposal = (formValues) => async (dispatch, getState) => {
@@ -108,6 +96,31 @@ export const createQuestion = (formValues) => async (dispatch, getState) => {
 
   dispatch({ type: CREATE_TICKET, payload: response.data });
   history.push("/");
+};
+
+export const fetchTickets = () => async (dispatch) => {
+  const response = await tickets.get("/tickets");
+
+  dispatch({ type: FETCH_TICKETS, payload: response.data });
+};
+
+export const fetchTicket = (id) => async (dispatch) => {
+  const response = await tickets.get(`/tickets/${id}`);
+
+  dispatch({ type: FETCH_TICKET, payload: response.data });
+};
+
+export const editTicket = (id, formValues) => async (dispatch) => {
+  const response = await tickets.patch(`/tickets/${id}`, formValues);
+
+  dispatch({ type: EDIT_TICKET, payload: response.data });
+  history.push("/");
+};
+
+export const closeTicket = (id, formValues, isClosed) => async (dispatch) => {
+  const response = await tickets.patch(`/tickets/${id}`, formValues, isClosed);
+
+  dispatch({ type: CLOSE_TICKET, payload: response.data });
 };
 
 // BEFORE DEPLOYMENT... UPDATE BASEURL in TICKETS.JS
