@@ -25,7 +25,7 @@ class CommentForm extends Component {
   }
 }
 
-const afterSubmit = (result, dispatch) => dispatch(reset("commentForm"));
+const afterSubmit = (dispatch) => dispatch(reset("commentForm"));
 
 export default reduxForm({
   form: "commentForm",
